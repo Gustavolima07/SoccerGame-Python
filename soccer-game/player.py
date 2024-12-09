@@ -1,8 +1,9 @@
 class Player: #Classe que representa um jogador de futebol
-    def __init__(self, nome,idade , posicao, atributos):
+    def __init__(self, nome,idade , posicao, num, atributos):
         self.nome = nome
         self.idade = idade
         self.posicao = posicao
+        self.num = num
         self.atributos = atributos
         
     def get_nome(self):
@@ -23,10 +24,15 @@ class Player: #Classe que representa um jogador de futebol
     def set_posicao(self, posicao):
         self.posicao = posicao
         
+    def get_num(self):
+        return self.num
+    
+    def set_num(self, num):
+        self.num = num    
+        
     def get_atributos(self):
         return self.atributos
     
     def set_atributos(self, atributos):
         self.atributos = atributos
         
-    
