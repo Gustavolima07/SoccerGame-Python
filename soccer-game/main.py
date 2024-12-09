@@ -68,7 +68,7 @@ def remover_jogador():
         
 def menu():
     print("Bem vindo Soccer-Game!\n")
-    x = int(input("Digite a opção desejada: \n1 - Adicionar jogador \n2 - Listar jogadores \n3 - Alterar  \n4 - Remover jogador \n5 - Sair\n"))
+    x = int(input("Digite a opção desejada: \n1 - Adicionar jogador \n2 - Listar jogadores \n3 - Alterar Dados  \n4 - Remover jogador \n5 - Sair\n"))
     if(x == 1): adicionar_jogador()
     elif(x == 2): lista_jogadores()
     elif(x == 3): alterar_jogador()
