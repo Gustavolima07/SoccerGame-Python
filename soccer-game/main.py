@@ -1,6 +1,7 @@
 from player import *
 from teams import *
 import os
+import random as chances
 
 def clear(): #Limpa o terminal
     os.system('cls')
@@ -12,7 +13,7 @@ dream_team = [] #Time criado pelo usuário
 
 def adicionar_jogador(): #Função para cadastrar um jogador
     clear()
-    x = int(input("Digite se voce quer criar o seu próprio time ou usar o time padrão: \n1 - Criar time \n2 - Time padrão \n3 - Sair\n"))
+    x = int(input("Digite se voce quer criar os seus propríos jogadores ou usar um elenco padrão: \n1 - Criar Jogador \n2 - Elenco padrão \n3 - Sair\n"))
     if(x == 1):
         nome = str(input("Digite o nome do jogador: "))
         idade = int(input("Digite a idade do jogador: "))
@@ -23,6 +24,14 @@ def adicionar_jogador(): #Função para cadastrar um jogador
         elif(posicao == 2): posicao = "Zagueiro"
         elif(posicao == 3): posicao = "Meio-Campo"
         elif(posicao == 4): posicao = "Atacante"
+        dream_team.append(Player(nome,idade,posicao,num,atributo))
+        adicionar_novamente = int(input("Deseja adicionar mais alguém? 1 - Sim ou 0 - Não: "))
+        if(adicionar_novamente == 1):
+            adicionar_jogador()
+        else:
+            clear()
+            menu()
+            
     if(x == 2):
         dream_team.append(Player("Jogador1", 25, "Goleiro", 1, 80))
         dream_team.append(Player("Jogador2", 28, "Zagueiro", 2, 85))
@@ -35,15 +44,6 @@ def adicionar_jogador(): #Função para cadastrar um jogador
     else:
         print("Valor incorreto!")
         adicionar_jogador()
-    
-    
-    dream_team.append(Player(nome,idade,posicao,num,atributo)) #Adiciona o jogador na lista
-    adicionar_novamente = int(input("Deseja adicionar mais alguém? 1 - Sim ou 0 - Não: "))
-    if(adicionar_novamente == 1):
-        adicionar_jogador()
-    else:
-        clear()
-        menu()
         
 def geral_time(): #Função que geral a média do time
     geral = 0
@@ -137,17 +137,33 @@ def simular():
                       x.get_num(),
                       x.get_atributos()
                       ))
+        
         y += 1
-    x = int(input("Selecione o time adversário: 1 - Time 1\n"))
+    x = int(input("\nSelecione o time adversário: 1 - Time 1\n"))
     if(x == 1):    
         team_one
         escalacao()
-        
     
+        if(geral_time() in team_one < geral_time() in dream_team):
+            a = chances.randint(0,10)
+            b = chances.randint(0,10)
+            c = chances.randint(0,10)
+            vitoria = a + b
+            if(vitoria > c):
+                print("Vitória!")
+                tela_inicial()
+            else:
+                print("Derrota!")
+        else:
+            a = chances.randint(0,10)
+            b = chances.randint(0,10)
+            if(a > b):
+                print("Vitória!")
+                tela_inicial()
     else:
         print("Valor incorreto!")
-        simular()
-    tela_inicial()
+        simular()    
+
              
         
 def tela_inicial():
