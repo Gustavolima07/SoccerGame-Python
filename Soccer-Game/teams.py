@@ -32,3 +32,12 @@ def escalacao():
                       ))
         y += 1
 escalacao()
+
+def geral_adversario():
+    geral1 = 0
+    for x in team_one:
+        geral1 += x.get_atributos()
+    if len(team_one) > 0:
+        return geral1 / len(team_one)
+    else:
+        return 0
