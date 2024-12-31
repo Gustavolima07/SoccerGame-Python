@@ -107,7 +107,7 @@ def remover_jogador():
         menu()
         
 def menu():
-    print("Bem vindo Soccer-Game!\n")
+    print("Bem vindo ao Soccer-Game!\n")
     x = int(input("Digite a opção desejada: \n1 - Adicionar jogador \n2 - Listar jogadores \n3 - Alterar Dados  \n4 - Remover jogador \n5 - Tela inicial \n6 - Sair\n"))
     if(x == 1): adicionar_jogador()
     elif(x == 2): lista_jogadores()
@@ -145,11 +145,11 @@ def simular():
         escalacao()
     
         if(geral_time() > geral_adversario()):
-            a = chances.randint(0,10)
-            b = chances.randint(0,10)
-            c = chances.randint(0,10)
-            vitoria = a + b
-            if(vitoria > c):
+            chute1 = chances.randint(0,10)
+            chute2 = chances.randint(0,10)
+            chute_oponente = chances.randint(0,10)
+            vitoria = chute1 + chute2
+            if(vitoria > chute_oponente):
                 placar_dreamteam = chances.randint(1,5)
                 print("\nVitória! Placar: ",placar_dreamteam, "x 0")
                 tela_inicial()
@@ -158,9 +158,9 @@ def simular():
                 print("\nDerrota!Placar: 0 x ",placar_adversario)
                 tela_inicial()
         else:
-            a = chances.randint(0,10)
-            b = chances.randint(0,10)
-            if(a > b):
+            chute1 = chances.randint(0,10)
+            chute_oponente = chances.randint(0,10)
+            if(chute1 > chute_oponente):
                 placar_dreamteam = chances.randint(1,5)
                 print("\nVitória! Placar: ",placar_dreamteam, "x 0")
                 tela_inicial()   
@@ -171,7 +171,7 @@ def simular():
                 tela_inicial()
 
 def tela_inicial():
-    print("Bem vindo Soccer-Game!\n")
+    print("Bem vindo ao Soccer-Game!\n")
     x = int(input("Digite a opção para iniciar o jogo: \n1 - Jogo simulado \n2 - Seu time \n3 - Sair\n"))
     if(x ==1): simular()
     elif(x == 2): menu()
